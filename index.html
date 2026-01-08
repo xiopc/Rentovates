@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rentovate — Rent smarter. Earn more.</title>
+  <meta name="description" content="Rentovate revolutionizes property rental through rent arbitrage. Guaranteed monthly rent plus 12.5% of net profits. We handle everything while you earn more." />
+
+  <meta property="og:title" content="Rentovate — Rent smarter. Earn more." />
+  <meta property="og:description" content="Guaranteed agreed rent + 12.5% of net profits. We manage everything in prime EU tourist locations." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:type" content="website" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#ffffff;
+  --muted:#6b7280;
+  --ink:#0b2540;
+  --accent:linear-gradient(135deg,#0b4fb0,#2b7be6);
+  --card:#f9fafb;
+  --max:1280px;
+  --radius:16px;
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 32px;
+}
+
+/* ================= HEADER ================= */
+
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:rgba(255,255,255,.72);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  z-index:1000;
+  transition:all .3s ease;
+}
+
+.site-header.scrolled{
+  background:rgba(255,255,255,.85);
+  box-shadow:0 2px 16px rgba(0,0,0,.04);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:68px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  font-size:19px;
+  color:var(--ink);
+  text-decoration:none;
+}
+
+.nav{
+  display:flex;
+  gap:36px;
+  align-items:center;
+}
+
+.nav a{
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:500;
+  font-size:14px;
+  transition:opacity .2s;
+  opacity:.75;
+}
+
+.nav a:hover{opacity:1}
+
+.nav a.cta{
+  background:var(--ink);
+  color:#fff;
+  padding:9px 20px;
+  border-radius:24px;
+  font-weight:600;
+  opacity:1;
+}
+
+.nav a.cta:hover{
+  background:#1a3d5f;
+}
+
+.mobile-toggle{
+  display:none;
+  background:none;
+  border:0;
+  cursor:pointer;
+  padding:8px;
+}
+
+.mobile-toggle span{
+  display:block;
+  width:22px;
+  height:2px;
+  background:var(--ink);
+  margin:4px 0;
+  border-radius:2px;
+  transition:all .3s;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:68px;
+}
+
+.hero-content{
+  text-align:center;
+  max-width:920px;
+  margin:0 auto;
+  padding:80px 0;
+}
+
+.hero-content h1{
+  font-size:clamp(42px,6vw,72px);
+  font-weight:800;
+  letter-spacing:-.04em;
+  margin-bottom:24px;
+  line-height:1.1;
+  background:linear-gradient(135deg,#0b2540,#0b4fb0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-content .lede{
+  font-size:clamp(18px,2vw,24px);
+  color:var(--muted);
+  margin-bottom:40px;
+  line-height:1.5;
+  font-weight:400;
+}
+
+.hero-cta{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--ink);
+  color:#fff;
+  padding:16px 32px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:16px;
+  transition:all .3s;
+  border:2px solid transparent;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(11,37,64,.2);
+}
+
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:transparent;
+  color:var(--ink);
+  padding:16px 32px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:16px;
+  transition:all .3s;
+  border:2px solid var(--ink);
+}
+
+.btn-secondary:hover{
+  background:var(--ink);
+  color:#fff;
+}
+
+.hero-visual{
+  margin-top:60px;
+  position:relative;
+}
+
+.hero-image{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 40px 100px rgba(11,37,64,.15);
+}
+
+.hero-image img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ================= STATS BAR ================= */
+
+.stats-bar{
+  background:linear-gradient(135deg,#0b2540,#0b4fb0);
+  color:#fff;
+  padding:50px 0;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:40px;
+  text-align:center;
+}
+
+.stat-item h3{
+  font-size:48px;
+  font-weight:800;
+  margin-bottom:8px;
+  background:linear-gradient(135deg,#fff,rgba(255,255,255,.7));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.stat-item p{
+  color:rgba(255,255,255,.85);
+  font-size:15px;
+  font-weight:500;
+}
+
+/* ================= FEATURE SECTIONS ================= */
+
+.feature-section{
+  padding:120px 0;
+  position:relative;
+}
+
+.feature-section:nth-child(even){
+  background:var(--card);
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.feature-grid.reverse{
+  direction:rtl;
+}
+
+.feature-grid.reverse > *{
+  direction:ltr;
+}
+
+.feature-content h2{
+  font-size:clamp(32px,4vw,48px);
+  font-weight:800;
+  margin-bottom:24px;
+  letter-spacing:-.03em;
+  line-height:1.2;
+}
+
+.feature-content p{
+  font-size:18px;
+  color:var(--muted);
+  margin-bottom:16px;
+  line-height:1.7;
+}
+
+.feature-list{
+  list-style:none;
+  margin:32px 0;
+}
+
+.feature-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:20px;
+  font-size:17px;
+  color:#374151;
+}
+
+.feature-list li:before{
+  content:"✓";
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:24px;
+  height:24px;
+  background:linear-gradient(135deg,#0b4fb0,#2b7be6);
+  color:#fff;
+  border-radius:50%;
+  flex-shrink:0;
+  font-weight:700;
+  font-size:14px;
+}
+
+.feature-visual{
+  position:relative;
+}
+
+.feature-visual img{
+  width:100%;
+  height:auto;
+  border-radius:16px;
+  box-shadow:0 24px 60px rgba(11,37,64,.12);
+}
+
+/* ================= PROCESS SECTION ================= */
+
+.process-section{
+  background:#0b2540;
+  color:#fff;
+  padding:100px 0;
+}
+
+.process-header{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 70px;
+}
+
+.process-header h2{
+  font-size:clamp(32px,4vw,48px);
+  margin-bottom:20px;
+  font-weight:800;
+  letter-spacing:-.03em;
+}
+
+.process-header p{
+  color:rgba(255,255,255,.8);
+  font-size:19px;
+  line-height:1.6;
+}
+
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:32px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.process-card{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:40px 32px;
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+  position:relative;
+  overflow:hidden;
+}
+
+.process-card:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:linear-gradient(90deg,#0b4fb0,#2b7be6);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
+}
+
+.process-card:hover{
+  background:rgba(255,255,255,.09);
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+.process-card:hover:before{
+  transform:scaleX(1);
+}
+
+.process-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:56px;
+  height:56px;
+  background:linear-gradient(135deg,#0b4fb0,#2b7be6);
+  border-radius:50%;
+  font-weight:800;
+  font-size:22px;
+  margin-bottom:24px;
+  box-shadow:0 8px 24px rgba(43,123,230,.3);
+}
+
+.process-card h3{
+  font-size:22px;
+  margin-bottom:12px;
+  font-weight:700;
+}
+
+.process-card p{
+  color:rgba(255,255,255,.85);
+  line-height:1.7;
+  font-size:16px;
+}
+
+/* ================= BENEFITS SECTION ================= */
+
+.benefits-section{
+  padding:100px 0;
+  background:var(--card);
+}
+
+.section-header{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 60px;
+}
+
+.section-header h2{
+  font-size:clamp(32px,4vw,48px);
+  margin-bottom:16px;
+  font-weight:800;
+  letter-spacing:-.03em;
+}
+
+.section-header p{
+  color:var(--muted);
+  font-size:19px;
+}
+
+.benefits-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:28px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.benefit-card{
+  background:#fff;
+  padding:36px 32px;
+  border-radius:16px;
+  box-shadow:0 4px 20px rgba(11,37,64,.06);
+  transition:all .3s;
+  border:1px solid transparent;
+}
+
+.benefit-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(11,37,64,.12);
+  border-color:rgba(11,79,176,.1);
+}
+
+.benefit-icon{
+  width:52px;
+  height:52px;
+  background:linear-gradient(135deg,#e0f2fe,#dbeafe);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+  font-size:24px;
+}
+
+.benefit-card h3{
+  font-size:20px;
+  margin-bottom:12px;
+  font-weight:700;
+}
+
+.benefit-card p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:15px;
+}
+
+/* ================= CTA SECTION ================= */
+
+.cta-section{
+  padding:100px 0;
+  background:linear-gradient(135deg,#0b2540,#0b4fb0);
+  color:#fff;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.cta-section:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,.1)"/></svg>');
+  opacity:.3;
+}
+
+.cta-content{
+  max-width:800px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+
+.cta-content h2{
+  font-size:clamp(32px,4vw,52px);
+  margin-bottom:24px;
+  font-weight:800;
+  letter-spacing:-.03em;
+}
+
+.cta-content p{
+  font-size:20px;
+  margin-bottom:40px;
+  color:rgba(255,255,255,.9);
+  line-height:1.6;
+}
+
+.cta-buttons{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn-white{
+  background:#fff;
+  color:var(--ink);
+  padding:16px 32px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:16px;
+  transition:all .3s;
+  display:inline-block;
+}
+
+.btn-white:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(255,255,255,.3);
+}
+
+/* ================= CONTACT SECTION ================= */
+
+.contact-section{
+  padding:100px 0;
+}
+
+.contact-wrapper{
+  max-width:900px;
+  margin:0 auto;
+}
+
+.contact-card{
+  background:#fff;
+  border-radius:24px;
+  padding:60px;
+  box-shadow:0 12px 48px rgba(11,37,64,.08);
+  border:1px solid rgba(0,0,0,.04);
+}
+
+.contact-header{
+  text-align:center;
+  margin-bottom:48px;
+}
+
+.contact-header h2{
+  font-size:clamp(28px,4vw,42px);
+  margin-bottom:16px;
+  font-weight:800;
+}
+
+.contact-header p{
+  color:var(--muted);
+  font-size:18px;
+}
+
+.contact-form{
+  display:grid;
+  gap:20px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.form-group label{
+  font-weight:600;
+  font-size:14px;
+  color:var(--ink);
+}
+
+.form-group input,
+.form-group textarea{
+  padding:14px 16px;
+  border-radius:10px;
+  border:2px solid #e5e7eb;
+  font-size:16px;
+  font-family:inherit;
+  transition:all .3s;
+  background:#fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:#0b4fb0;
+  box-shadow:0 0 0 3px rgba(11,79,176,.1);
+}
+
+.form-group textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.contact-form button{
+  background:var(--ink);
+  color:#fff;
+  padding:16px;
+  border-radius:10px;
+  border:none;
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
+  transition:all .3s;
+  margin-top:12px;
+}
+
+.contact-form button:hover{
+  background:#1a3d5f;
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(11,37,64,.2);
+}
+
+.contact-info{
+  text-align:center;
+  margin-top:32px;
+  padding-top:32px;
+  border-top:1px solid #e5e7eb;
+}
+
+.contact-info p{
+  color:var(--muted);
+  margin-bottom:8px;
+}
+
+.contact-info a{
+  color:#0b4fb0;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer{
+  background:#0b2540;
+  color:rgba(255,255,255,.7);
+  padding:40px 0;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+.site-footer p{
+  font-size:14px;
+}
+
+/* ================= ANIMATIONS ================= */
+
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all .8s cubic-bezier(.4,0,.2,1);
+}
+
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.scale-in{
+  opacity:0;
+  transform:scale(.95);
+  transition:all .8s cubic-bezier(.4,0,.2,1);
+}
+
+.scale-in.visible{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:980px){
+  .hero-content{padding:60px 0}
+  
+  .feature-grid{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+  
+  .feature-grid.reverse{direction:ltr}
+  
+  .process-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .stats-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  
+  .nav{display:none}
+  .mobile-toggle{display:block}
+  
+  .nav.open{
+    display:flex;
+    position:absolute;
+    top:100%;
+    right:32px;
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 12px 40px rgba(0,0,0,.15);
+    flex-direction:column;
+    gap:16px;
+    min-width:200px;
+  }
+  
+  .contact-card{padding:40px 28px}
+}
+
+@media (max-width:640px){
+  .container{padding:0 20px}
+  
+  .hero-cta{
+    flex-direction:column;
+  }
+  
+  .btn-primary,
+  .btn-secondary{
+    width:100%;
+    justify-content:center;
+  }
+  
+  .benefits-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .cta-buttons{
+    flex-direction:column;
+  }
+  
+  .btn-white{
+    width:100%;
+  }
+}
+  </style>
+</head>
+
+<body>
+<header class="site-header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#top" class="brand">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <path d="M3 9L12 2L21 9V20A2 2 0 0 1 19 22H5A2 2 0 0 1 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 22V13H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Rentovate
+      </a>
+
+      <nav class="nav">
+        <a href="#model">The Model</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#contact" class="cta">Get Started</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-content">
+        <h1>The future of property rental is here.</h1>
+        <p class="lede">
+          Guaranteed monthly rent plus 12.5% of net profits. Zero work, maximum returns. 
+          We transform your property into a premium short-term rental while you earn more than ever.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary">Partner With Us</a>
+          <a href="#model" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+      
+      <div class="hero-visual scale-in">
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80" alt="European architecture">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid fade-in">
+        <div class="stat-item">
+          <h3>12.5%</h3>
+          <p>Profit share on top of base rent</p>
+        </div>
+        <div class="stat-item">
+          <h3>100%</h3>
+          <p>Property management included</p>
+        </div>
+        <div class="stat-item">
+          <h3>€0</h3>
+          <p>Hidden fees or management costs</p>
+        </div>
+        <div class="stat-item">
+          <h3>24/7</h3>
+          <p>Property monitoring & support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE: THE MODEL -->
+  <section id="model" class="feature-section">
+    <div class="container">
+      <div class="feature-grid fade-in">
+        <div class="feature-content">
+          <h2>Your property. Our expertise. Shared success.</h2>
+          <p>
+            Rentovate pioneers a revolutionary rent arbitrage model that benefits landlords across prime European tourist destinations. We guarantee your agreed monthly rent while optimizing your property for short-term stays.
+          </p>
+          <ul class="feature-list">
+            <li><strong>Guaranteed Base Rent:</strong> Receive your agreed monthly amount with zero vacancy risk</li>
+            <li><strong>Profit Participation:</strong> Earn 12.5% of all net profits we generate from your property</li>
+            <li><strong>Complete Management:</strong> We handle marketing, bookings, cleaning, and maintenance</li>
+            <li><strong>Total Transparency:</strong> Monthly reports showing all income and your profit share</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80" alt="Modern property interior">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE: RESPECT & CARE -->
+  <section class="feature-section">
+    <div class="container">
+      <div class="feature-grid reverse fade-in">
+        <div class="feature-content">
+          <h2>Your home, treated with respect.</h2>
+          <p>
+            We understand your property is more than an investment—it's your asset, your legacy. That's why we treat every property as if it were our own, implementing rigorous standards for guest screening, professional housekeeping, and preventative maintenance.
+          </p>
+          <p>
+            Our team works tirelessly to ensure your property is not just maintained, but enhanced. We respect your wishes, communicate openly, and provide complete visibility into how your property is being managed.
+          </p>
+          <ul class="feature-list">
+            <li>Thorough guest screening and verification process</li>
+            <li>Professional cleaning after every single stay</li>
+            <li>Regular property inspections and maintenance</li>
+            <li>Owner preferences always respected and prioritized</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1000&q=80" alt="Property care">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE: PRIME LOCATIONS -->
+  <section class="feature-section">
+    <div class="container">
+      <div class="feature-grid fade-in">
+        <div class="feature-content">
+          <h2>Prime European tourist destinations.</h2>
+          <p>
+            We focus exclusively on high-demand locations across Europe where short-term rentals thrive year-round. From historic city centers to coastal retreats, we identify properties with exceptional earning potential.
+          </p>
+          <p>
+            Our market expertise means we know exactly how to position your property, optimize pricing dynamically, and maintain consistently high occupancy rates—maximizing both your base rent security and profit-sharing returns.
+          </p>
+          <ul class="feature-list">
+            <li>Strategic presence in top European tourist hubs</li>
+            <li>Dynamic pricing algorithms maximize revenue</li>
+            <li>Year-round demand in carefully selected markets</li>
+            <li>Local expertise in regulations and best practices</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=1000&q=80" alt="European city">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="how-it-works" class="process-section">
+    <div class="container">
+      <div class="process-header fade-in">
+        <h2>How It Works</h2>
+        <p>From onboarding to ongoing optimization, we handle everything while you receive guaranteed rent plus profit-sharing payments.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card fade-in">
+          <div class="process-number">1</div>
+          <h3>Property Assessment</h3>
+          <p>We evaluate your property, discuss your requirements, and agree on a guaranteed monthly rent that works for you.</p>
+        </div>
+
+        <div class="process-card fade-in">
+          <h3>Professional Setup</h3>
+          <div class="process-number">2</div>
+          <p>Our team prepares your property with professional photography, premium listings, and quality furnishings if needed.</p>
+        </div>
+
+        <div class="process-card fade-in">
+          <div class="process-number">3</div>
+          <h3>Marketing & Bookings</h3>
+          <p>We list on major platforms, handle all guest communications, and optimize pricing to maximize occupancy and revenue.</p>
+        </div>
+
+        <div class="process-card fade-in">
+          <div class="process-number">4</div>
+          <h3>Guest Screening</h3>
+          <p>Every guest is thoroughly vetted with ID verification, booking history review, and clear house rules communication.</p>
+        </div>
+
+        <div class="process-card fade-in">
+          <div class="process-number">5</div>
+          <h3>Operations & Care</h3>
+          <p>Professional cleaning after each stay, routine maintenance, and 24/7 monitoring ensure your property stays pristine.</p>
+        </div>
+
+        <div class="process-card fade-in">
+          <div class="process-number">6</div>
+          <h3>Transparent Reporting</h3>
+          <p>Receive your guaranteed rent plus 12.5% of net profits monthly with complete financial transparency and property updates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefits" class="benefits-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Everything you need. Nothing you don't.</h2>
+        <p>Comprehensive property management designed for landlord peace of mind</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">🏠</div>
+          <h3>Housekeeping Services</h3>
+          <p>Professional cleaning crew after every checkout ensures your property always looks its best for the next guest.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">🔧</div>
+          <h3>Total Maintenance</h3>
+          <p>From routine repairs to preventative upkeep, we handle all maintenance issues quickly and professionally.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">✓</div>
+          <h3>Curated Guests</h3>
+          <p>Rigorous screening process ensures only respectful, verified guests stay in your property.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">📊</div>
+          <h3>Dynamic Pricing</h3>
+          <p>AI-powered pricing adjusts rates based on demand, seasonality, and local events to maximize revenue.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">🛡️</div>
+          <h3>Insurance Coverage</h3>
+          <p>Comprehensive liability and property damage protection gives you complete peace of mind.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">📞</div>
+          <h3>24/7 Support</h3>
+          <p>Round-the-clock guest support and emergency response ensures issues are handled immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content fade-in">
+        <h2>Ready to earn more from your property?</h2>
+        <p>Join landlords across Europe who trust Rentovate to maximize their returns while eliminating management headaches.</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn-white">Start Your Partnership</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-wrapper fade-in">
+        <div class="contact-card">
+          <div class="contact-header">
+            <h2>Let's discuss your property</h2>
+            <p>Tell us about your property and we'll show you the potential</p>
+          </div>
+
+          <form class="contact-form" action="https://formspree.io/f/maypkljr" method="POST">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" placeholder="John Smith" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="+353 123 456 789">
+            </div>
+
+            <div class="form-group">
+              <label for="location">Property Location</label>
+              <input id="location" name="propertyLocation" type="text" placeholder="Dublin, Barcelona, Paris..." required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell us about your property</label>
+              <textarea id="message" name="message" placeholder="Number of bedrooms, current rental status, any special features..."></textarea>
+            </div>
+
+            <button type="submit">Submit Inquiry</button>
+          </form>
+
+          <div class="contact-info">
+            <p>Or reach us directly at</p>
+            <a href="mailto:rentovate@gmail.com">rentovate@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Rentovate — Revolutionizing property rental across the European Union</p>
+  </div>
+</footer>
+
+<script>
+// Header scroll effect
+const header = document.getElementById('header');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+  
+  lastScroll = currentScroll;
+});
+
+// Mobile menu
+const toggle = document.querySelector('.mobile-toggle');
+const nav = document.querySelector('.nav');
+
+toggle?.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', isOpen);
+});
+
+// Smooth scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in, .scale-in').forEach(el => {
+  observer.observe(el);
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+</body>
+</html>
